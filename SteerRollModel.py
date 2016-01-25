@@ -31,8 +31,8 @@ exprRhs= exprRhs.subs([(sin(theta), theta),(cos(theta),1)])
 ANVEL steering input is used :
 tau*delta_f_d + delta_f = u_s
 """
-tau, u_s = symbols('tau u_s')
-exprSteerAct= Matrix([(u_s-delta_f)/tau])
+tau, u_s, delta_max = symbols('tau u_s delta_max')
+exprSteerAct= Matrix([(delta_max*u_s-delta_f)/tau])
 
 # append equation
 exprRhs= Matrix([exprRhs, exprSteerAct])
